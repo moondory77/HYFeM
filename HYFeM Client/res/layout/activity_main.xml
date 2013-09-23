@@ -7,7 +7,7 @@
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
+        android:background="@null"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -35,7 +35,7 @@
             android:id="@+id/mainlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ffffffff"
+            android:background="@null"
             android:gravity="left"
             android:orientation="vertical" >
 
@@ -44,10 +44,19 @@
                 android:layout_height="match_parent"
                 android:background="@null" >
 
+                <android.support.v4.view.ViewPager
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#000000" >
+
+                </android.support.v4.view.ViewPager>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/splash"
+                    android:background="@null"
                     android:orientation="vertical" >
 
                     <LinearLayout
@@ -105,6 +114,7 @@
                     android:background="@android:color/transparent"
                     android:orientation="vertical"
                     android:visibility="gone" />
+
             </FrameLayout>
         </LinearLayout>
     </FrameLayout>

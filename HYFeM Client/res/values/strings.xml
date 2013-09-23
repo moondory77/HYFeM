@@ -3,5 +3,6 @@
 
     <string name="app_name">HYFeM</string>
     <string name="menu_animation_speed">300</string>
+    <string name="ads_animation_speed">5000</string>
 
 </resources>
