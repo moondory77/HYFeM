@@ -5,6 +5,7 @@ import com.eos.hyfem.slidingmenu.CloseAnimation;
 import com.eos.hyfem.slidingmenu.OpenAnimation;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.view.KeyEvent;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
@@ -91,6 +93,28 @@ public class SlidingMenuActivity extends Activity implements OnClickListener {
 		btn2.setOnClickListener(this);
 		btn3.setOnClickListener(this);
 		btn4.setOnClickListener(this);
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		switch (keyCode) {
+			case KeyEvent.KEYCODE_BACK:
+				if (menuExpanded) {
+					slideMenuAnimationToggle();
+					menuExpanded = false;
+					break;
+				} else {
+					// 종료
+					moveTaskToBack(true);
+					finish();
+					System.exit(0);
+					android.os.Process.killProcess(android.os.Process.myPid());
+					ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+					am.restartPackage(getPackageName());
+				}
+			break;
+		}
+		return true;
 	}
 
 	/**
